@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Match - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="px-6">
+    <header>
+      <nav>
+        <div class="navbar bg-base-100 shadow-lg">
+            <div class="flex-1">
+              <a class="btn btn-ghost text-xl" href="index.html"><span class="text-red-600 text-2xl  font-bold">Learn</span><span>Match</span></a>
+            </div>
+            <div class="flex-none">
+              <ul class="menu menu-horizontal px-1">
+                <li><a class="font-bold text-xl" href="all_tuitions.html">All Tuitions</a></li>
+                <li id="registration-container"><a href="registration.html" class="font-bold text-xl">Registration</a></li>
+                <li id="login-container"><a href="login.html" class="font-bold text-xl">Login</a></li>
+                <li>
+                  <details id="profile-container" class="profile-container">
+                    <summary class="font-bold text-xl">
+                      Profile
+                    </summary>
+                    <ul class="p-2 bg-base-100 rounded-t-none">
+                      <li><a>Link 1</a></li>
+                      <li><a>Link 2</a></li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </nav>
+    </header>
+
+    <div class="login-body flex items-center gap-4 my-8">
+        <div class="left-part w-1/2 mx-4">
+            <img src="./images/login.jpg" class="" alt="">
+        </div>
+        <div class="right-part text-center">
+            <h1 class="text-2xl font-bold">Welcome Back</h1>
+            <h3 class="">Please Login</h3>
+            <div class="input-fields ">
+              <form>
+                <input class="p-4 shadow-lg" id="username" type="username" placeholder="Username" required>
+                <input class="p-4 shadow-lg" type="password" id="password" placeholder="password" required>
+                <button onclick="handleLogin(event)" class="btn btn-neutral">Login</button>
+              </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer p-10 bg-neutral text-neutral-content flex justify-around">
+      <nav>
+        <h6 class="footer-title">Services</h6> 
+        <a class="link link-hover">Branding</a>
+        <a class="link link-hover">Design</a>
+        <a class="link link-hover">Marketing</a>
+        <a class="link link-hover">Advertisement</a>
+      </nav> 
+      <nav>
+        <h6 class="footer-title">Company</h6> 
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Contact</a>
+        <a class="link link-hover">Jobs</a>
+        <a class="link link-hover">Press kit</a>
+      </nav> 
+      <nav>
+        <h6 class="footer-title">Legal</h6> 
+        <a class="link link-hover">Terms of use</a>
+        <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover">Cookie policy</a>
+      </nav>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>

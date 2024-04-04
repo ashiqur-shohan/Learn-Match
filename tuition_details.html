@@ -1,51 +1,328 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn Match - All Tuitions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
-</head>
-<body class="px-6">
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blueish: "#004682",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body >
     <header>
       <nav>
         <div class="navbar bg-base-100 shadow-lg">
-            <div class="flex-1">
-              <a class="btn btn-ghost text-xl" href="index.html"><span class="text-red-600 text-2xl  font-bold">Learn</span><span>Match</span></a>
-            </div>
-            <div class="flex-none">
-              <ul class="menu menu-horizontal px-1">
-                <li><a class="font-bold text-xl" href="all_tuitions.html">All Tuitions</a></li>
-                <li id="registration-container"><a href="registration.html" class="font-bold text-xl">Registration</a></li>
-                <li id="login-container"><a href="login.html" class="font-bold text-xl">Login</a></li>
-                <li>
-                  <details id="profile-container" class="profile-container">
-                    <summary class="font-bold text-xl">
-                      Profile
-                    </summary>
-                    <ul class="p-2 bg-base-100 rounded-t-none">
-                      <li><a href="profile.html">Profile</a></li>
-                      <li><a>Applications</a></li>
-                      <li><a>LogOut</a></li>
-                    </ul>
-                  </details>
-                </li>
-              </ul>
-            </div>
+          <div class="flex-1">
+            <a class="btn btn-ghost text-xl" href="index.html"
+              ><span class="text-red-600 text-2xl font-bold">Learn</span
+              ><span>Match</span></a
+            >
           </div>
-    </nav>
+          <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+              <li>
+                <a class="font-bold text-xl" href="all_tuitions.html"
+                  >All Tuitions</a
+                >
+              </li>
+              <li id="registration-container">
+                <a href="registration.html" class="font-bold text-xl"
+                  >Registration</a
+                >
+              </li>
+              <li id="login-container">
+                <a href="login.html" class="font-bold text-xl">Login</a>
+              </li>
+              <li>
+                <details id="profile-container" class="profile-container">
+                  <summary class="font-bold text-xl">Profile</summary>
+                  <ul class="p-2 bg-base-100 rounded-t-none">
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a>Applications</a></li>
+                    <li><a>LogOut</a></li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
-    <div class="filter-container">
-      <h1>Filter</h1>
-    </div>
-    <div class="student-details">
-        
-    </div>
+    <div id = "tuition-detials-container">
 
+      <main class="bg-gray-200 px-24 py-16 flex gap-8">
+        <section>
+          <!-- stu info -->
+          <section class="bg-white p-10 rounded-lg">
+            <h1 class="text-2xl font-semibold text-blueish">
+              Student Information
+            </h1>
+
+            <div class="mt-6 grid grid-cols-3">
+              <!-- category -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-layer-group text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Category</h1>
+                  <p class="py-1 text-gray-500 text-lg">English Medium</p>
+                </div>
+              </div>
+
+              <!-- course -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-brands fa-discourse text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Courses</h1>
+                  <p class="py-1 text-gray-500 text-lg">Standard 4</p>
+                </div>
+              </div>
+
+              <!-- Subject -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-book text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Subject</h1>
+                  <p class="py-1 text-gray-500 text-lg">
+                    General Science, ICT, Maths
+                  </p>
+                </div>
+              </div>
+
+              <!-- Days & week -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-calendar-days text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Days and Week</h1>
+                  <p class="py-1 text-gray-500 text-lg">4 days</p>
+                </div>
+              </div>
+
+              <!-- tutoring time -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-regular fa-clock text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Tutoring Time</h1>
+                  <p class="py-1 text-gray-500 text-lg">400</p>
+                </div>
+              </div>
+
+              <!-- tutoring duration -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i
+                  class="fa-solid fa-hourglass-start text-3xl text-blueish"
+                ></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">
+                    Tutoring Duration
+                  </h1>
+                  <p class="py-1 text-gray-500 text-lg">2 hours</p>
+                </div>
+              </div>
+
+              <!-- Tutoring Method -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-gear text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">
+                    Tutoring Method
+                  </h1>
+                  <p class="py-1 text-gray-500 text-lg">Online Tutoring</p>
+                </div>
+              </div>
+
+              <!-- Maximum Salary -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-money-bills text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">
+                    Maximum Salary
+                  </h1>
+                  <p class="py-1 text-gray-500 text-lg">BDT 6000 TK</p>
+                </div>
+              </div>
+
+              <!-- Number of Students -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-user-graduate text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">
+                    Number of Students
+                  </h1>
+                  <p class="py-1 text-gray-500 text-lg">1</p>
+                </div>
+              </div>
+
+              <!-- Student Gender -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-venus-mars text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">
+                    Student Gender
+                  </h1>
+                  <p class="py-1 text-gray-500 text-lg">Female</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- tutor req -->
+          <section class="bg-white p-10 rounded-lg mt-6">
+            <h1 class="text-2xl font-semibold text-blueish">
+              Tutor Requirements
+            </h1>
+
+            <div class="mt-6 grid grid-cols-2">
+              <!-- university -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-graduation-cap text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">University</h1>
+                  <p class="py-1 text-gray-500 text-lg">
+                    Jagannath University (JNU)
+                  </p>
+                </div>
+              </div>
+
+              <!-- department -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-bookmark text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Department</h1>
+                  <p class="py-1 text-gray-500 text-lg">Applied Mathematics</p>
+                </div>
+              </div>
+
+              <!-- tutor gender -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-venus-mars text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Tutor Gender</h1>
+                  <p class="py-1 text-gray-500 text-lg">Female</p>
+                </div>
+              </div>
+
+              <!-- hiring -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i
+                  class="fa-regular fa-calendar-days text-3xl text-blueish"
+                ></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Hiring From</h1>
+                  <p class="py-1 text-gray-500 text-lg">30 mar 2024</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 mt-8">
+              <i class="fa-regular fa-file-lines text-3xl text-blueish"></i>
+              <div>
+                <h1 class="text-xl font-bold text-gray-600">
+                  Other Requirement
+                </h1>
+                <p class="py-1 text-gray-500 text-lg">
+                  " Experienced at English Medium " tutors are requested to
+                  apply.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- stu contact -->
+          <section class="bg-white p-10 rounded-lg mt-6">
+            <h1 class="text-2xl font-semibold text-blueish">
+              Contact Information
+            </h1>
+
+            <div class="mt-6 grid grid-cols-2">
+              <!-- country -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-globe text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Country</h1>
+                  <p class="py-1 text-gray-500 text-lg">Bangladesh</p>
+                </div>
+              </div>
+
+              <!-- City -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-city text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">City</h1>
+                  <p class="py-1 text-gray-500 text-lg">Dhaka</p>
+                </div>
+              </div>
+
+              <!-- location -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-solid fa-location-dot text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Location</h1>
+                  <p class="py-1 text-gray-500 text-lg">Mirpur</p>
+                </div>
+              </div>
+
+              <!-- address -->
+
+              <div class="flex items-center gap-4 mt-8">
+                <i class="fa-regular fa-address-card text-3xl text-blueish"></i>
+                <div>
+                  <h1 class="text-xl font-bold text-gray-600">Full Address</h1>
+                  <p class="py-1 text-gray-500 text-lg">West Shewrapara</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <div
+          class="flex flex-col bg-white rounded-lg px-16 py-10 gap-4 h-80 w-1/4"
+        >
+          <a href="" class="btn bg-black text-white">Get Direction</a>
+          <a href="" class="btn">Location</a>
+          <a href="" class="btn">Share</a>
+          <a href="" class="btn bg-blueish text-white">Apply Now</a>
+        </div>
+      </main>
+      
+    </div>
     <script src="app.js"></script>
     <script src="tuition_details.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-</body>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  </body>
 </html>

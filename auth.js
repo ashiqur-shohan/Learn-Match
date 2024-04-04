@@ -97,6 +97,7 @@ const handleLogin = (event) =>{
             if(data.token && data.user_id){
                 localStorage.setItem("token",data.token)
                 localStorage.setItem("user_id",data.user_id)
+                getTeacher()
                 // redirect korar jonno
                 window.location.href = "index.html"
             }
@@ -104,6 +105,17 @@ const handleLogin = (event) =>{
     
     }
 }
+
+const getTeacher = () => {
+    const user_id = localStorage.getItem("user_id");
+  
+    fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data[0].id);
+        localStorage.setItem("teacher_id", data[0].id);
+      });
+  };
 
 const change_password = (event) =>{
     

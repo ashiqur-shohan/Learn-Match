@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <style></style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -35,7 +33,7 @@
 
   <body class="font-poppins">
     <header>
-      <nav>
+      <nav class="font-poppins">
         <div class="navbar bg-base-100 shadow-lg">
           <div class="flex-1">
             <a class="btn btn-ghost lg:text-2xl" href="index.html"
@@ -200,7 +198,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
           <!-- first -->
           <div
             class="card border shadow-lg hover:shadow-2xl bg-[#335C81] bg-opacity-15"
@@ -239,10 +237,12 @@
           >
             <div class="card-body text-center">
               <div>
-                <h2 class="text-3xl">English</h2>
-                <p class="text-lg text-gray-500">Class 10</p>
-                <i class="fa-solid fa-location-dot"></i>
-                <p class="text-lg text-gray-500">Dhanmondi</p>
+                <h2 class="text-3xl font-semibold">Physics</h2>
+                <p class="text-lg text-gray-500">Class 11</p>
+
+                <p class="text-lg text-gray-500">
+                  <i class="fa-solid fa-location-dot mr-2"></i>Shewrapra
+                </p>
               </div>
 
               <div class="flex items-center gap-6 mt-8">
@@ -252,7 +252,7 @@
                   alt=""
                 />
                 <div class="text-start">
-                  <h3>Ashiqur Rahman</h3>
+                  <h3 class="font-bold">Ashiqur Rahman</h3>
                   <p class="text-gray-500">University of Chittagong</p>
                 </div>
               </div>
@@ -269,10 +269,12 @@
           >
             <div class="card-body text-center">
               <div>
-                <h2 class="text-3xl">Physics</h2>
-                <p class="text-lg text-gray-500">Class 9</p>
-                <i class="fa-solid fa-location-dot"></i>
-                <p class="text-lg text-gray-500">Shewrapara</p>
+                <h2 class="text-3xl font-semibold">Addmission</h2>
+                <p class="text-lg text-gray-500">Addmission</p>
+
+                <p class="text-lg text-gray-500">
+                  <i class="fa-solid fa-location-dot mr-2"></i>Demra
+                </p>
               </div>
 
               <div class="flex items-center gap-6 mt-8">
@@ -282,36 +284,7 @@
                   alt=""
                 />
                 <div class="text-start">
-                  <h3>Mansib Munshi</h3>
-                  <p class="text-gray-500">Titumir College</p>
-                </div>
-              </div>
-
-              <div class="card-actions justify-end pt-6">
-                <button class="btn bg-[#004682] text-white px-8">Find</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- forth -->
-          <div
-            class="card border shadow-lg hover:shadow-2xl bg-[#335C81] bg-opacity-15"
-          >
-            <div class="card-body text-center">
-              <div>
-                <h2 class="text-3xl">Biology</h2>
-                <p class="text-lg text-gray-500">SSC</p>
-                <p class="text-lg text-gray-500">Mirpur</p>
-              </div>
-
-              <div class="flex items-center gap-6 mt-8">
-                <img
-                  class="size-16 rounded-full"
-                  src="images/pic-4.jpg"
-                  alt=""
-                />
-                <div class="text-start">
-                  <h3>Sumaiya Dewan</h3>
+                  <h3 class="font-bold">Sumaia Dewan</h3>
                   <p class="text-gray-500">BUBT</p>
                 </div>
               </div>
@@ -321,6 +294,41 @@
               </div>
             </div>
           </div>
+
+          <!-- fourth -->
+          <div
+            class="card border shadow-lg hover:shadow-2xl bg-[#335C81] bg-opacity-15"
+          >
+            <div class="card-body text-center">
+              <div>
+                <h2 class="text-3xl font-semibold">Higher Math</h2>
+                <p class="text-lg text-gray-500">Class 12</p>
+
+                <p class="text-lg text-gray-500">
+                  <i class="fa-solid fa-location-dot mr-2"></i>Demra
+                </p>
+              </div>
+
+              <div class="flex items-center gap-6 mt-8">
+                <img
+                  class="size-16 rounded-full"
+                  src="images/pic-4.jpg"
+                  alt=""
+                />
+                <div class="text-start">
+                  <h3 class="font-bold">Mansib Munshi</h3>
+                  <p class="text-gray-500">Daffodil University</p>
+                </div>
+              </div>
+
+              <div class="card-actions justify-end pt-6">
+                <button class="btn bg-[#004682] text-white px-8">Find</button>
+              </div>
+            </div>
+          </div>
+
+
+
         </div>
       </section>
     </main>

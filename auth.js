@@ -133,7 +133,7 @@ const handlelogout = (event)=>{
         }
     })
     .catch(err => console.log(err))
-    window.location.reload();
+    
 }
 
 

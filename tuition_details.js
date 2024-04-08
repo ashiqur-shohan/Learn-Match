@@ -255,12 +255,22 @@ const displayTuition = (tuition) => {
             <a href="" class="btn bg-black text-white">Get Direction</a>
             <a href="" class="btn">Location</a>
             <a href="" class="btn">Share</a>
-            <a href="" onclick="handleApplication(event)" class="btn bg-blueish text-white">Apply Now</a>
+            <a href="" id='apply' onclick="handleApplication(event)" class="btn bg-blueish text-white">Apply Now</a>
         </div>
     </main>
   `;
+  const apply = document.getElementById("apply")
+  const token = localStorage.getItem("token") 
+  const user_id = localStorage.getItem("user_id") 
+  if (!token && !user_id){
+    console.log("inside if")
+    apply.setAttribute('onclick',"showalert(event)") 
+  }
 };
-
+const showalert = (event)=>{
+    event.preventDefault()
+    alert("Log In First!")
+}
 const handleApplication = (event) =>{
   event.preventDefault()
   const teacher_id = new URLSearchParams(window.location.search).get("tuition_id")

@@ -59,7 +59,7 @@ const displayTuition = (tuitions) =>{
               
               <h2 class="">Address : ${tuition.address}</h2>
               <h2 class="card-title"> <i class="fa-solid fa-calendar-days"></i> Days : ${tuition.day_perweek}</h2>
-              <a class="btn btn-neutral" href="tuition_details.html?tuition_id=${tuition.id}" target="_blank"> Details </a>
+              <a class="btn btn-neutral mt-4" href="tuition_details.html?tuition_id=${tuition.id}" target="_blank"> Details </a>
             </div>
           </div>
         `

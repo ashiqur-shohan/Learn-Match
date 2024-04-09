@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn Match - Profile</title>
-    <link rel="icon" href="./images/tuition1.png">
+    <link rel="icon" href="./images/tuition1.png" />
     <style></style>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body class="px-6">
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body >
     <header>
       <nav class="font-poppins">
         <div class="navbar bg-base-100 shadow-lg">
           <div class="flex-1">
-            <a class="btn btn-ghost lg:text-2xl" href="index.html"
-              ><span class="text-blue-600 font-bold">Learn</span>Match</a
-            >
+            <a class="btn btn-ghost lg:text-2xl" href="index.html"><span class="text-blue-600 font-bold">Learn</span>Match</a>
           </div>
           <div class="flex-none">
             <ul class="menu menu-horizontal px-1">
               <li>
-                <a class="font-bold lg:text-xl" href="all_tuitions.html"
-                  >All Tuitions</a
-                >
+                <a class="font-bold lg:text-xl" href="all_tuitions.html">All Tuitions</a>
               </li>
               <li id="registration-container">
-                <a href="registration.html" class="font-bold lg:text-xl"
-                  >Registration</a
-                >
+                <a href="registration.html" class="font-bold lg:text-xl">Registration</a>
               </li>
               <li id="login-container">
                 <a href="login.html" class="font-bold lg:text-xl">Login</a>
@@ -50,75 +51,58 @@
       </nav>
     </header>
 
-    <section class="flex m-12 gap-20">
-        <div class="w-1/3 ml-6 mt-5 space-y-8 border-r border-cyan-800">
-          <div id="user-image">
-            
-          </div>
-          <h1 class="font-bold text-xl hover:text-cyan-700"><a href="profile.html"><i class="fa-solid fa-user-pen mr-2 text-2xl "></i>Profile</a></h1>
-          <h1 class="font-bold text-xl hover:text-cyan-700"><a href="password_change.html"> <i class="fa-solid fa-pencil mr-2 text-2xl"></i> Password Change</a></h1>
+    <section class="flex">
+      <!-- left section -->
+      <div class="w-1/3 space-y-8 bg-gradient-to-r from-[#4364F7] to-[#6FB1FC]">
+        <div class="flex justify-center mt-4">
+          <img id="user-image" src="" alt="" class="h-40 w-40 rounded-full" />
         </div>
-        
-        <div class="w-2/3">
-            <form method="put">
-                <div class="flex">
-                  <div class="flex w-1/2">
-                    <div class="flex-1 space-y-14  mt-6">
-                      <p class="text-lg  font-bold" >First Name</p>
-                      <p class="text-lg  font-bold" >Username</p>
-                      <p class="text-lg  font-bold">Mobile No.</p>
-                      <p class="text-lg font-bold">Image</p>
-                    </div>
-
-                    <div class="w-3/4">
-                      <input id="first_name" type="text" class=" p-3 border m-4 border-cyan-800 rounded-lg">
-                      <input id="username" type="username" class="p-3 border m-4 border-cyan-800 rounded-lg" readonly>
-                      <input id="mobile_no" type="username" class=" p-3 border m-4 border-cyan-800 rounded-lg">
-                      <input type="file" class=" p-3 border m-4 border-cyan-800 rounded-lg">
-                    </div>
-                  </div>
-
-                  <div class="flex">
-                    <div class="flex-1 space-y-14 mt-6">
-                      <p class="text-lg font-bold" >Last Name</p>
-                      <p class="text-lg font-bold">Email</p>
-                      <p class="text-lg font-bold">Birth date</p>
-                    </div>
-
-                    <div class="w-3/4">
-                      <input id="last_name" type="text" class="p-3 border m-4 border-cyan-800 rounded-lg">
-                      <input id="email" type="email" class=" p-3 border m-4 border-cyan-800 rounded-lg"  readonly>
-                      <input id="birth_date" type="date" class=" p-3 border m-4 border-cyan-800 rounded-lg">
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class="flex justify-end mr-20 gap-4">
-                  <button class="btn bg-red-800 px-8 text-white">Cancel</button>
-                  <button onclick="updateUserInfo(event)" class="btn btn-primary px-8 text-white">Update</button>
-                </div>
-            </form>
+        <div class="m-8 space-y-8">
+          <h1 class="font-bold text-xl text-white hover:text-cyan-700">
+            <a href="profile.html"
+              ><i class="fa-solid fa-user mr-4 text-2xl"></i> Profile </a>
+          </h1>
+          <h1 class="font-bold text-xl text-white hover:text-cyan-700">
+            <a href="update_profile.html"><i class="fa-solid fa-user-pen mr-2 text-2xl"> </i> Update Profile </a>
+          </h1>
+          <h1 class="font-bold text-xl text-white hover:text-cyan-700">
+            <a href="password_change.html">
+              <i class="fa-solid fa-lock mr-2 text-2xl"></i> Password Change</a>
+          </h1>
         </div>
+      </div>
+
+      <!-- right section -->
+      <div class="space-y-5 mt-5 ml-5">
+        <p class="text-xl font-bold text-gray-600">Name: <span> Ashiqur Rahman Shohan </span></p>
+        <p class="text-xl font-bold text-gray-600">UserName:</p>
+        <p class="text-xl font-bold text-gray-600">Email: </p>
+        <p class="text-xl font-bold text-gray-600">Mobile No.</p>
+        <p class="text-xl font-bold text-gray-600">Birth-date</p>
+        <p class="text-xl font-bold text-gray-600">Education</p>
+      </div>
     </section>
-    
+
     <!-- footer section -->
-    <footer class="footer p-10 bg-neutral text-neutral-content flex justify-around">
+    <footer
+      class="footer p-10 bg-neutral text-neutral-content flex justify-around"
+    >
       <nav>
-        <h6 class="footer-title">Services</h6> 
+        <h6 class="footer-title">Services</h6>
         <a class="link link-hover">Branding</a>
         <a class="link link-hover">Design</a>
         <a class="link link-hover">Marketing</a>
         <a class="link link-hover">Advertisement</a>
-      </nav> 
+      </nav>
       <nav>
-        <h6 class="footer-title">Company</h6> 
+        <h6 class="footer-title">Company</h6>
         <a class="link link-hover">About us</a>
         <a class="link link-hover">Contact</a>
         <a class="link link-hover">Jobs</a>
         <a class="link link-hover">Press kit</a>
-      </nav> 
+      </nav>
       <nav>
-        <h6 class="footer-title">Legal</h6> 
+        <h6 class="footer-title">Legal</h6>
         <a class="link link-hover">Terms of use</a>
         <a class="link link-hover">Privacy policy</a>
         <a class="link link-hover">Cookie policy</a>
@@ -127,7 +111,16 @@
 
     <!-- scripts -->
     <script src="app.js"></script>
-    <script src="profile.js"></script>
+    <!-- <script src="profile.js"></script> -->
+    <script>
+      const user_id = localStorage.getItem("user_id")
+      fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
+      .then(res => res.json())
+      .then(data => {
+        const user_image = document.getElementById("user-image")
+        user_image.src = data[0].image
+    })
+    </script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-</body>
+  </body>
 </html>

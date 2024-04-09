@@ -81,27 +81,32 @@ const getTeacher = () => {
 const change_password = (event) =>{
     
     event.preventDefault()
-    const oldPassword = document.getElementById('old-password').value;
-    const newPassword = document.getElementById('new-password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-
-    const errorMessage = document.getElementById('error-message');
-    if (newPassword !== confirmPassword) {
-        errorMessage.innerText = 'Passwords do not match.';
+    const token = localStorage.getItem("token")
+    const old_password = document.getElementById('oldPassword').value;
+    const new_password = document.getElementById('newPassword').value;
+    const confirm_password = document.getElementById('confirmPassword').value;
+    
+    // const errorMessage = document.getElementById('error-message');
+    if (new_password !== confirm_password) {
+        // errorMessage.innerText = 'Passwords do not match.';
         return;
     }
 
     else {
+        console.log("inside else block")
         fetch("https://learn-match-api.onrender.com/user/change-password/",{
+        // fetch("http://127.0.0.1:8000/user/change-password/",{
             method : "PUT",
             headers:{"content-type":"application/json"},
-            body : JSON.stringify({oldPassword,newPassword,confirmPassword})
+            body : JSON.stringify({old_password,new_password,confirm_password})
         })    
         .then((res) => res.json())
         .then((data) =>{
             console.log(data)
-            errorMessage.innerText = 'Password Change Succesfully.';
+            console.log("Password Changed succesfully")
+            // errorMessage.innerText = 'Password Change Succesfully.';
         })
+        .catch(err => console.log(err))
     }
 }
 

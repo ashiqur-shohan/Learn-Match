@@ -50,11 +50,11 @@
               </li>
               <li>
                 <details id="profile-container" class="profile-container">
-                  <summary class="font-bold lg:text-xl mr-4">Profile</summary>
-                  <ul class="p-2 bg-base-100 rounded-t-none">
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a>Applications</a></li>
-                    <li onclick="handlelogout(event)"><a href="">LogOut</a></li>
+                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">Profile</summary>
+                  <ul class="p-2 bg-gray-200 rounded-t-none">
+                    <li class="border-gray-400 border-b"><a href="profile.html">Profile</a></li>
+                    <li class="border-gray-400 border-b"><a>Applications</a></li>
+                    <li  onclick="handlelogout(event)"><a href="">LogOut</a></li>
                   </ul>
                 </details>
               </li>
@@ -75,7 +75,8 @@
           alt=""
           class="size-28 lg:size-40 rounded-full"
         />
-
+        <label class="lg:p-4 text-center lg:w-40 bg-[#e3362c] rounded-lg text-white cursor-pointer text-lg font-bold" for="image">Change Image</label> 
+          <input class="hidden" id="image" type="file">
         <!-- profile update profile section -->
         <div class="space-y-2 lg:space-y-8">
           <h1 class="font-bold lg:text-xl text-white hover:text-cyan-700">
@@ -98,8 +99,54 @@
         </div>
       </div>
 
+      <!-- new right section by ashfia -->
+      <div>
+        <form method="put" enctype="multipart/form-data">
+        <div class="grid grid-cols-2 lg:grid-cols-4 p-8 lg:p-16 ">
+          <label class="mb-4 mt-2 text-lg font-bold" for="first_name">First Name</label> 
+          <input class="input mb-4 p-3 border border-cyan-800 rounded-lg lg:relative right-16" id="first_name" type="text">
+
+          <label class="mb-4 mt-2 text-lg font-bold" for="last_name"> Last Name</label> 
+          <input class="input mb-4 p-3 border border-cyan-800 rounded-lg lg:relative  right-16" id="last_name" type="text">
+
+          <label class="mb-4 mt-2 text-lg font-bold" for="username"> Username</label> 
+          <input class="input mb-4 p-3 border  border-cyan-800 rounded-lg lg:relative  right-16" id="username" type="text">
+
+          <label class="mb-4 mt-2 text-lg font-bold" for="email"> Email</label> 
+          <input class="input mb-4 p-3 border  border-cyan-800 rounded-lg lg:relative  right-16" id="email" type="text">
+
+          <label class="mb-4 mt-2 text-lg font-bold" for="mobile_no"> Mobile No.</label> 
+          <input class="input mb-4 p-3 border border-cyan-800 rounded-lg lg:relative  right-16" id="mobile_no" type="text">
+
+          <label class="mb-4 mt-2 text-lg font-bold" for="birth_date"> Birth Date</label> 
+          <input class="input mb-4 p-3 border border-cyan-800 rounded-lg lg:relative  right-16" id="birth_date" type="text">
+
+          
+
+          <label class="mb-4 mt-2 text-lg font-bold" for="education"> Education</label> 
+          <!-- <input class="input mb-4 p-3 border col-span-2 border-cyan-800 rounded-lg relative  right-16" type="dropdown"> -->
+          <select id="education" class=" mb-4 p-3 border lg:col-span-2 border-cyan-800 rounded-lg lg:relative right-16" name="fruitSelection">
+            <option value="ssc">SSC</option>
+            <option value="hsc">HSC</option>
+            <option value="Honours">Honours</option>
+          </select><br>
+          <div class="flex ">
+            <button class="btn bg-red-800 px-8 text-white">Cancel</button>
+            <button
+              onclick="updateUserInfo(event)"
+              class="btn btn-primary px-8 text-white"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+        
+      </form>
+      </div>
+
+
       <!-- right section -->
-      <div class="lg:w-2/3 bg-[#f5f5f5] p-16 rounded-lg">
+      <!-- <div class="lg:w-2/3 bg-[#f5f5f5] p-16 rounded-lg">
         <form method="put" enctype="multipart/form-data">
           <div class="flex">
             <div class="flex w-1/2">
@@ -198,7 +245,8 @@
             </button>
           </div>
         </form>
-      </div>
+      </div> -->
+
     </section>
 
     <!-- footer section -->
@@ -229,6 +277,7 @@
 
     <!-- scripts -->
     <script src="app.js"></script>
+    <script src="auth.js"></script>
     <script src="profile.js"></script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </body>

@@ -1,5 +1,7 @@
 const handleUserProfile = () =>{
     const user_id = localStorage.getItem("user_id")
+
+    // user-model data show 
     fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
     .then(res => res.json())
     .then(data => {
@@ -13,19 +15,30 @@ const handleUserProfile = () =>{
         email.value = data.email
     })
 
+    // Teacher-model data display 
     // fetch(`https://learn-match-api.onrender.com/user/list/?${user_id}`)
     fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
     .then(res => res.json())
     .then(data => {
         const mobile_no = document.getElementById("mobile_no")
         const birth_date = document.getElementById("birth_date")
-        const user_image = document.getElementById("user-image")
+        
         // console.log(data[0])
         mobile_no.value = data[0].mobile_no
         birth_date.value = data[0].birth_date
-        user_image.src = data[0].image
         
-        console.log(data[0].image)
+    })
+
+    // teacher image display 
+    fetch("http://127.0.0.1:8000/user/image/8")
+    .then(res => res.json())
+    .then(data => {
+
+        const user_image = document.getElementById("user-image")
+        user_image.src = data.image
+        const date = data.date
+        const formated_date = new Date(date).toLocaleString()
+        console.log(formated_date)
     })
 }
 
@@ -59,14 +72,16 @@ const updateUserInfo = (event) =>{
     //for teacher data
     let birth_date = document.getElementById("birth_date").value
     const mobile_no = document.getElementById("mobile_no").value
+    // const user_image = document.getElementById("user-image")
     const image = document.getElementById("image")
-    const imageFIle = image.files[0]
+    let imageFIle = image.files[0]
     if (!birth_date){
         birth_date = null
     }
-
+    
+    
     const formData = new FormData()
-    formData.append("image",imageFIle)
+    // formData.append("image",imageFIle)
     formData.append("birth_date",birth_date)
     formData.append("mobile_no",mobile_no)
     formData.append("education","SSC")
@@ -76,8 +91,6 @@ const updateUserInfo = (event) =>{
     // fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`,{
     fetch(`http://127.0.0.1:8000/user/list/?user_id=8`,{
         method:"PUT",
-        // headers:{"content-type":"application/json"},
-        // body : JSON.stringify(info2)
         body : formData
     })
     .then((res) => res.json())
@@ -86,7 +99,6 @@ const updateUserInfo = (event) =>{
         window.location.reload()
     })
     .catch(err => console.log(err))
-    
 }
 
 

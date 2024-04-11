@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learn Match - All Tuitions</title>
+    <title>Learn Match - Applications</title>
     <link rel="icon" href="./images/tuition1.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style></style>
+    
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -33,8 +31,10 @@
       }
     </style>
   </head>
-  <body class=" bg-base-300">
+
+  <body class="font-poppins">
     <header>
+
       <!-- navbar -->
       <nav class="font-poppins">
         <div class="navbar flex-col lg:flex-row bg-base-100 shadow-lg">
@@ -72,47 +72,33 @@
           </div>
         </div>
       </nav>
-    </header>
 
-    <div class="flex flex-col lg:flex-row justify-between items-center gap-4  lg:max-w-6xl mx-auto mt-10">
-      <div class="space-y-4">
-        <button class="btn">Watch Tutorial</button>
+
+      <h1 class="text-center text-xl font-bold mt-12 mx-20 lg:mx-80 pb-2  border-b border-cyan-400">All Application of <br> <span class="text-cyan-600 text-xl lg:text-2xl" id="profile_name">Mansib Munshi</span></h1>
+      <div class="overflow-x-auto border  rounded-lg m-12">
+        <table class="table">
+          <!-- head -->
+          <thead>
+            <tr class="bg-base-200">
+              <th>Serial No.</th>
+              <th>Class</th>
+              <th>Salary</th>
+              <th>Address</th>
+              <th>Day Per Week</th>
+              <th>Cancel</th>
+            </tr>
+          </thead>
+          <tbody id="table_row">
+            <!-- data fetched from the js code -->
+            
+            
+          </tbody>
+        </table>
       </div>
 
-      <div class="flex gap-3">
-        <label class="input input-bordered flex items-center gap-2">
-          <input id="search" type="text" class="grow" placeholder="Search" />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            class="w-4 h-4 opacity-70"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </label>
-        <button onclick="handleSearch()" class="btn btn-primary">Search</button>
-      </div>
-    </div>
 
-    <div
-      class="flex flex-cols shadow-lg w-1/2 lg:w-1/3 mx-auto rounded-lg bg-white px-8 py-2 justify-center my-8"
-    >
-      <h1 id="tuition-no" class="text-xl"></h1>
-      <span class="text-xl">- Tuition Found</span>
-    </div>
-    <!-- all tuition section -->
-    <div
-      id="tuition-container"
-      class="grid grid-cols-1 lg:grid-cols-3 gap-12 px-2 max-w-6xl mx-auto"
-    ></div>
-
-    <!-- footer section -->
-    <footer
+      <!-- footer section -->
+      <footer
       class="footer p-10 bg-neutral text-neutral-content flex justify-around"
     >
       <nav>
@@ -137,10 +123,56 @@
       </nav>
     </footer>
 
-    <!-- script -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <script src="app.js"></script>
-    <script src="auth.js"></script>
-    <script src="all_tuitions.js" defer></script>
+    <!-- scripts -->
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      const teacher_id = localStorage.getItem("teacher_id")
+      const user_id = localStorage.getItem("user_id")
+      const token = localStorage.getItem("token")
+      function checkLoginStatus() {
+        if (!user_id && !token){
+            window.location.href = "login.html"
+        }
+    }
+    checkLoginStatus()
+
+    //fetching user model data to show user full name on the heading 
+    fetch(`http://127.0.0.1:8000/user/data/${user_id}`)
+    .then(response => response.json())
+    .then(user_data => {
+      const user_name = document.getElementById("profile_name")
+      user_name.innerText = `${user_data.first_name} ${user_data.last_name}`
+      
+    })
+    const table_row = document.getElementById("table_row")
+    let count=1
+
+    //fetching all application by logged in user
+    fetch(`http://127.0.0.1:8000/application/?teacher_id=${teacher_id}`)
+    .then(response => response.json())
+    .then(data => {
+      data.forEach((application) => {
+        const tr = document.createElement("tr")
+        
+        // fetching tuition model data by tuition id
+        fetch(`http://127.0.0.1:8000/tuition/?tuition_id=${application.tuition}`)
+        .then(response => response.json())
+        .then(tuition => {
+          tr.innerHTML =`
+          <th id="tuition_id${tuition[0].id}">${count}</th>
+          <td> <a href="tuition_details.html?tuition_id=${tuition[0].id}"> ${tuition[0].grade} </a> </td>
+          <td>${tuition[0].salary} BDT</td>
+          <td>${tuition[0].address}, ${tuition[0].location}</td>
+          <td>${tuition[0].day_perweek}</td>
+          <td><a href=""> <i class="fa-solid text-xl text-red-600 fa-xmark"></i></a></td>
+        `
+        count++
+        table_row.appendChild(tr)
+        })
+      })
+    })
+
+    </script>
   </body>
 </html>

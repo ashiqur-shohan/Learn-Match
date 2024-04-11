@@ -273,15 +273,15 @@ const showalert = (event)=>{
 }
 const handleApplication = (event) =>{
   event.preventDefault()
-  const teacher_id = new URLSearchParams(window.location.search).get("tuition_id")
+  const tuition_id = new URLSearchParams(window.location.search).get("tuition_id")
   console.log("inside hangle application")
   fetch("https://learn-match-api.onrender.com/application/",{
     method : "POST",
     headers : {"content-type":"application/json"},
     body:JSON.stringify({
       "confirm": false,
-      "teacher": teacher_id,
-      "tuition": localStorage.getItem("teacher_id")
+      "tuition": tuition_id,
+      "teacher": localStorage.getItem("teacher_id")
     })
   })
   .then((res) => res.json())

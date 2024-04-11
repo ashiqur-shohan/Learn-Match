@@ -47,7 +47,7 @@
                   <summary class="font-bold bg-base-100 lg:text-xl mr-4">Profile</summary>
                   <ul class="p-2 bg-gray-200 rounded-t-none">
                     <li class="border-gray-400 border-b"><a href="profile.html">Profile</a></li>
-                    <li class="border-gray-400 border-b"><a>Applications</a></li>
+                    <li class="border-gray-400 border-b"><a href="applications.html">Applications</a></li>
                     <li  onclick="handlelogout(event)"><a href="">LogOut</a></li>
                   </ul>
                 </details>
@@ -69,10 +69,9 @@
           alt=""
           class="size-28 lg:size-40 rounded-full"
         />
-        <label class="lg:p-4 text-center lg:w-40 bg-[#e3362c] rounded-lg text-white cursor-pointer text-lg font-bold" for="image">Change Image</label> 
-          <input class="hidden" id="image" type="file">
+        
         <!-- profile update profile section -->
-        <div class="space-y-2 lg:space-y-8">
+        <div class="space-y-2 m-4 lg:space-y-8">
           <h1 class="font-bold lg:text-xl text-white hover:text-cyan-700">
             <a href="profile.html"
               ><i class="fa-solid fa-user mr-4 lg:text-2xl"></i>Profile</a
@@ -95,12 +94,12 @@
 
       <!-- right section -->
       <div class="space-y-5 mt-5 ml-5">
-        <p class="text-xl font-bold text-gray-600">Name: <span> Ashiqur Rahman Shohan </span></p>
-        <p class="text-xl font-bold text-gray-600">UserName:</p>
-        <p class="text-xl font-bold text-gray-600">Email: </p>
-        <p class="text-xl font-bold text-gray-600">Mobile No.</p>
-        <p class="text-xl font-bold text-gray-600">Birth-date</p>
-        <p class="text-xl font-bold text-gray-600">Education</p>
+        <p class="text-xl font-bold text-gray-600">Name: <span id="first_name"> </span> <span id="last_name"> </span> </p>
+        <p class="text-xl font-bold text-gray-600">User Name: <span id="username"></span></p>
+        <p class="text-xl font-bold text-gray-600">Email: <span id="email"> </span></p>
+        <p class="text-xl font-bold text-gray-600">Mobile No: <span id="mobile_no"> </span></p>
+        <p class="text-xl font-bold text-gray-600">Birth Date: <span id="birth_date"> </span> </p>
+        <p class="text-xl font-bold text-gray-600">Education: <span id="education"> </span></p>
       </div>
     </section>
 
@@ -133,16 +132,52 @@
     <!-- scripts -->
     <script src="app.js"></script>
     <script src="auth.js"></script>
+    <script src="profile.js"></script>
     <!-- <script src="profile.js"></script> -->
+
+    <!-- inline js code  -->
     <script>
       const user_id = localStorage.getItem("user_id")
+      // handle user picture
       fetch(`http://127.0.0.1:8000/user/image/${user_id}`)
       .then(res => res.json())
       .then(data => {
         const user_image = document.getElementById("user-image")
         user_image.src = data.image
-    })
+      })
+
+      // show user data 
+      fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
+      .then(res => res.json())
+      .then(data => {
+          const first_name = document.getElementById("first_name")
+          const last_name = document.getElementById("last_name")
+          const username = document.getElementById("username")
+          const email = document.getElementById("email")
+          first_name.innerText = data.first_name
+          last_name.innerText = data.last_name
+          username.innerText = data.username
+          email.innerText = data.email
+      })
+
+
+      // Teacher-model data display 
+      // fetch(`https://learn-match-api.onrender.com/user/list/?${user_id}`)
+      fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
+      .then(res => res.json())
+      .then(data => {
+          const mobile_no = document.getElementById("mobile_no")
+          const birth_date = document.getElementById("birth_date")
+          const education = document.getElementById("education")
+          
+          // console.log(data[0])
+          mobile_no.innerText = data[0].mobile_no
+          birth_date.innerText = data[0].birth_date
+          education.innerText = data[0].education
+      })
+
     </script>
+    
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </body>
 </html>

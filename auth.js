@@ -45,8 +45,8 @@ const handleLogin = (event) =>{
     const password = document.getElementById("password").value
 
     if ((username,password)){
-        fetch("https://learn-match-api.onrender.com/user/login/",{
-        // fetch("http://127.0.0.1:8000/user/login/",{
+        // fetch("https://learn-match-api.onrender.com/user/login/",{
+        fetch("http://127.0.0.1:8000/user/login/",{
             method : "POST",
             headers:{"content-type":"application/json"},
             body : JSON.stringify({username,password})
@@ -58,9 +58,15 @@ const handleLogin = (event) =>{
             if(data.token && data.user_id){
                 localStorage.setItem("token",data.token)
                 localStorage.setItem("user_id",data.user_id)
-                getTeacher()
+                // fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+                fetch(`http://127.0.0.1:8000/user/list/?user_id=${data.user_id}`)
+                .then((res) => res.json())
+                .then((data) => {
+                localStorage.setItem("teacher_id", data[0].id);
                 // redirect korar jonno
                 window.location.href = "index.html"
+                });
+                
             }
         })
     
@@ -68,9 +74,11 @@ const handleLogin = (event) =>{
 }
 
 const getTeacher = () => {
+
     const user_id = localStorage.getItem("user_id");
   
-    fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+    // fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+    fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data[0].id);
@@ -81,12 +89,19 @@ const getTeacher = () => {
 const change_password = (event) =>{
     
     event.preventDefault()
-    const token = localStorage.getItem("token")
+    
     const old_password = document.getElementById('oldPassword').value;
     const new_password = document.getElementById('newPassword').value;
     const confirm_password = document.getElementById('confirmPassword').value;
-    
+    const token = localStorage.getItem("token")
+    const user_id = localStorage.getItem("user_id")
     // const errorMessage = document.getElementById('error-message');
+    const info = {
+        "old_password" : old_password,
+        "new_password" : new_password,
+        "confirm_password" : confirm_password,
+        "user_id":user_id
+    }
     if (new_password !== confirm_password) {
         // errorMessage.innerText = 'Passwords do not match.';
         return;
@@ -94,11 +109,14 @@ const change_password = (event) =>{
 
     else {
         console.log("inside else block")
-        fetch("https://learn-match-api.onrender.com/user/change-password/",{
-        // fetch("http://127.0.0.1:8000/user/change-password/",{
+        // fetch("https://learn-match-api.onrender.com/user/change-password/",{
+        fetch("http://127.0.0.1:8000/user/change-password/",{
             method : "PUT",
-            headers:{"content-type":"application/json"},
-            body : JSON.stringify({old_password,new_password,confirm_password})
+            headers:{
+                "Authorization" : `Token ${token}`,
+                "content-type" : "application/json"
+            },
+            body : JSON.stringify(info)
         })    
         .then((res) => res.json())
         .then((data) =>{
@@ -116,8 +134,8 @@ const handlelogout = (event)=>{
     const user_id = localStorage.getItem("user_id")
     // console.log(token)
     
-    fetch("https://learn-match-api.onrender.com/user/logout/",{
-    // fetch("http://127.0.0.1:8000/user/logout/",{
+    // fetch("https://learn-match-api.onrender.com/user/logout/",{
+    fetch("http://127.0.0.1:8000/user/logout/",{
         method:"POST",
         headers:{
             "Authorization" : `Token ${token}`,
@@ -133,6 +151,7 @@ const handlelogout = (event)=>{
         if (res.status === 204){
             localStorage.removeItem("token")
             localStorage.removeItem("user_id")
+            localStorage.removeItem("teacher_id")
             console.log("Logout succesfull")
             window.location.href = 'index.html'
         }

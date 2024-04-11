@@ -53,7 +53,7 @@
                   <summary class="font-bold bg-base-100 lg:text-xl mr-4">Profile</summary>
                   <ul class="p-2 bg-gray-200 rounded-t-none">
                     <li class="border-gray-400 border-b"><a href="profile.html">Profile</a></li>
-                    <li class="border-gray-400 border-b"><a>Applications</a></li>
+                    <li class="border-gray-400 border-b"><a href="applications.html">Applications</a></li>
                     <li  onclick="handlelogout(event)"><a href="">LogOut</a></li>
                   </ul>
                 </details>
@@ -75,8 +75,11 @@
           alt=""
           class="size-28 lg:size-40 rounded-full"
         />
-        <label class="lg:p-4 text-center lg:w-40 bg-[#e3362c] rounded-lg text-white cursor-pointer text-lg font-bold" for="image">Change Image</label> 
+        <div class="flex-row lg:flex-col gap-2">
+          <label class="lg:p-2 text-center lg:w-36 bg-[#e3362c] rounded-lg text-white cursor-pointer text-lg font-bold" for="image">Upload</label> 
           <input class="hidden" id="image" type="file">
+          <button onclick="changeImage(event)" class="btn btn-primary">Change Picture</button>
+        </div>
         <!-- profile update profile section -->
         <div class="space-y-2 lg:space-y-8">
           <h1 class="font-bold lg:text-xl text-white hover:text-cyan-700">
@@ -279,6 +282,13 @@
     <script src="app.js"></script>
     <script src="auth.js"></script>
     <script src="profile.js"></script>
+    <script>
+      let user_image = document.getElementById("user-image")
+      let inputfield = document.getElementById("image")
+      inputfield.onchange = function () {
+        user_image.src = URL.createObjectURL(inputfield.files[0])
+      }
+    </script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </body>
 </html>

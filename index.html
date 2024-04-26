@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="icon" href="./images/tuition1.png">
+    <link rel="icon" href="./images/tuition1.png" />
     <style></style>
-    
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
     <link
@@ -15,16 +19,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
-    <!-- poppins font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- google font poppins -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- custom font -->
-
     <style>
       .font-poppins {
         font-family: "Poppins", sans-serif;
@@ -34,7 +33,6 @@
 
   <body class="font-poppins">
     <header>
-
       <!-- navbar -->
       <nav class="font-poppins">
         <div class="navbar flex-col lg:flex-row bg-base-100 shadow-lg">
@@ -60,11 +58,17 @@
               </li>
               <li>
                 <details id="profile-container" class="profile-container">
-                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">Profile</summary>
+                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">
+                    Profile
+                  </summary>
                   <ul class="p-2 bg-gray-200 rounded-t-none">
-                    <li class="border-gray-400 border-b"><a href="profile.html">Profile</a></li>
-                    <li class="border-gray-400 border-b"><a href="applications.html">Applications</a></li>
-                    <li  onclick="handlelogout(event)"><a href="">LogOut</a></li>
+                    <li class="border-gray-400 border-b">
+                      <a href="profile.html">Profile</a>
+                    </li>
+                    <li class="border-gray-400 border-b">
+                      <a href="applications.html">Applications</a>
+                    </li>
+                    <li onclick="handlelogout(event)"><a href="">LogOut</a></li>
                   </ul>
                 </details>
               </li>
@@ -74,13 +78,13 @@
       </nav>
 
       <!-- banner -->
-  
+
       <div
         class="hero lg:h-[450px] mt-12 lg:rounded-2xl container mx-auto"
         style="background-image: url(./images/banner.jpg)"
       >
         <div class="hero-overlay bg-opacity-60 lg:rounded-2xl"></div>
-        <div class="hero-content text-center ">
+        <div class="hero-content text-center">
           <div class="text-white text-center w-4/5 lg:w-full">
             <h1 class="text-2xl lg:text-4xl font-semibold">
               Country's #1 <br />
@@ -101,13 +105,11 @@
       </div>
     </header>
 
-
     <!-- main section -->
 
     <main class="max-w-6xl mx-auto px-2">
       <!-- head section -->
       <section>
-
         <!-- registered tutor section -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           <div class="hero border bg-white shadow-lg">
@@ -329,9 +331,6 @@
               </div>
             </div>
           </div>
-
-
-
         </div>
       </section>
     </main>
@@ -339,12 +338,11 @@
     <!-- affiliate -->
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col lg:flex-row-reverse">
-        <img
-          src="./images/affiliate.svg"
-          class="max-w-sm"
-        />
+        <img src="./images/affiliate.svg" class="max-w-sm" />
         <div>
-          <h1 class="mt-6 lg:mt-0 text-2xl lg:text-5xl text-center lg:text-start font-bold">
+          <h1
+            class="mt-6 lg:mt-0 text-2xl lg:text-5xl text-center lg:text-start font-bold"
+          >
             Affiliate <span class="text-green-800">Partner</span>
           </h1>
           <p class="py-5 lg:pr-80">

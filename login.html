@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn Match - Login</title>
-    <link rel="icon" href="./images/tuition1.png">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="./images/tuition1.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body >
+
+    <!-- google font poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="font-poppins">
     <header>
       <!-- navbar -->
       <nav class="font-poppins">
@@ -35,11 +50,17 @@
               </li>
               <li>
                 <details id="profile-container" class="profile-container">
-                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">Profile</summary>
+                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">
+                    Profile
+                  </summary>
                   <ul class="p-2 bg-gray-200 rounded-t-none">
-                    <li class="border-gray-400 border-b"><a href="profile.html">Profile</a></li>
-                    <li class="border-gray-400 border-b"><a href="applications.html">Applications</a></li>
-                    <li  onclick="handlelogout(event)"><a href="">LogOut</a></li>
+                    <li class="border-gray-400 border-b">
+                      <a href="profile.html">Profile</a>
+                    </li>
+                    <li class="border-gray-400 border-b">
+                      <a href="applications.html">Applications</a>
+                    </li>
+                    <li onclick="handlelogout(event)"><a href="">LogOut</a></li>
                   </ul>
                 </details>
               </li>
@@ -49,55 +70,76 @@
       </nav>
     </header>
 
-<div class="bg-base-200">
+    <div class="bg-base-200">
+      <h1
+        class="hidden lg:block text-3xl lg:text-5xl text-center pt-6 font-bold"
+      >
+        Login now!
+      </h1>
+      <div class="lg:w-2/3 mx-auto">
+        <div class="hero">
+          <div class="hero-content flex-col lg:flex-row">
+            <!-- login now portion -->
+            <div class="text-center lg:text-left">
+              <img src="./images/login.png" alt="" />
+            </div>
 
-  <h1 class="hidden lg:block text-3xl lg:text-5xl text-center pt-6 font-bold">Login now!</h1>
-  <div class="lg:w-2/3 mx-auto">
+            <h1
+              class="block lg:hidden text-3xl lg:text-5xl text-center -mt-8 pb-6 font-bold"
+            >
+              Login now!
+            </h1>
 
-    <div class="hero   ">
-      <div class="hero-content flex-col lg:flex-row ">
-        
-        <!-- login now portion -->
-        <div class="text-center lg:text-left">
-          <img src="./images/login.png" alt="">
+            <!-- login portion -->
+            <div
+              class="card shrink-0 w-full lg:max-w-sm shadow-2xl bg-base-100"
+            >
+              <form class="card-body">
+                <div class="form-control">
+                  <label class="label" for="username">
+                    <span class="label-text">User Name</span>
+                  </label>
+                  <input
+                    value="mansib"
+                    type="username"
+                    id="username"
+                    placeholder="username"
+                    class="input input-bordered"
+                    required
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label" for="password">
+                    <span class="label-text">Password</span>
+                  </label>
+                  <input
+                    value="shohan01"
+                    type="password"
+                    id="password"
+                    placeholder="password"
+                    class="input input-bordered"
+                    required
+                  />
+                  <label class="label">
+                    <a href="#" class="label-text-alt link link-hover"
+                      >Forgot password?</a
+                    >
+                  </label>
+                  <p id="login-error"></p>
+                </div>
+                <div class="form-control mt-6">
+                  <button onclick="handleLogin(event)" class="btn btn-primary">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-
-        <h1 class="block lg:hidden text-3xl lg:text-5xl text-center -mt-8 pb-6 font-bold">Login now!</h1>
-        
-        <!-- login portion -->
-        <div class="card shrink-0 w-full lg:max-w-sm shadow-2xl bg-base-100">
-          <form class="card-body">
-            <div class="form-control">
-              <label class="label" for="username">
-                <span class="label-text">User Name</span>
-              </label>
-              <input value="mansib" type="username" id="username" placeholder="username" class="input input-bordered" required />
-            </div>
-            <div class="form-control">
-              <label class="label" for="password">
-                <span class="label-text">Password</span>
-              </label>
-              <input value="shohan01" type="password" id="password" placeholder="password" class="input input-bordered" required />
-              <label class="label">
-                <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-              </label>
-              <p id="login-error"></p>
-            </div>
-            <div class="form-control mt-6">
-              <button onclick="handleLogin(event)" class="btn btn-primary">Login</button>
-            </div>
-          </form>
-        </div>
-
       </div>
-    </div>
 
-  </div>
-  
-  
-  
-  <!-- <h1 class="text-2xl my-6 lg:text-5xl text-center font-bold">Login now!</h1> -->
-  <!-- <div class="hero min-h-screen bg-base-200">
+      <!-- <h1 class="text-2xl my-6 lg:text-5xl text-center font-bold">Login now!</h1> -->
+      <!-- <div class="hero min-h-screen bg-base-200">
     <div class="hero-content flex-col lg:flex-row">
       <div class="text-center lg:text-left">
         <div class="w-1/2 lg:m-4">
@@ -128,28 +170,27 @@
       </div>
     </div>
   </div> -->
+    </div>
 
-</div>
-
-
-
-    <footer class="footer p-10 bg-neutral text-neutral-content flex justify-around">
+    <footer
+      class="footer p-10 bg-neutral text-neutral-content flex justify-around"
+    >
       <nav>
-        <h6 class="footer-title">Services</h6> 
+        <h6 class="footer-title">Services</h6>
         <a class="link link-hover">Branding</a>
         <a class="link link-hover">Design</a>
         <a class="link link-hover">Marketing</a>
         <a class="link link-hover">Advertisement</a>
-      </nav> 
+      </nav>
       <nav>
-        <h6 class="footer-title">Company</h6> 
+        <h6 class="footer-title">Company</h6>
         <a class="link link-hover">About us</a>
         <a class="link link-hover">Contact</a>
         <a class="link link-hover">Jobs</a>
         <a class="link link-hover">Press kit</a>
-      </nav> 
+      </nav>
       <nav>
-        <h6 class="footer-title">Legal</h6> 
+        <h6 class="footer-title">Legal</h6>
         <a class="link link-hover">Terms of use</a>
         <a class="link link-hover">Privacy policy</a>
         <a class="link link-hover">Cookie policy</a>
@@ -159,5 +200,5 @@
     <script src="app.js"></script>
     <script src="auth.js"></script>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-</body>
+  </body>
 </html>

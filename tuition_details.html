@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learn Match - All Tuitions</title>
-    <link rel="icon" href="./images/tuition1.png">
+    <link rel="icon" href="./images/tuition1.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
@@ -26,8 +26,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <!-- google font poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
   </head>
-  <body >
+
+  <body class="font-poppins">
     <header>
       <!-- navbar -->
       <nav class="font-poppins">
@@ -54,11 +65,17 @@
               </li>
               <li>
                 <details id="profile-container" class="profile-container">
-                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">Profile</summary>
+                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">
+                    Profile
+                  </summary>
                   <ul class="p-2 bg-gray-200 rounded-t-none">
-                    <li class="border-gray-400 border-b"><a href="profile.html">Profile</a></li>
-                    <li class="border-gray-400 border-b"><a href="applications.html">Applications</a></li>
-                    <li  onclick="handlelogout(event)"><a href="">LogOut</a></li>
+                    <li class="border-gray-400 border-b">
+                      <a href="profile.html">Profile</a>
+                    </li>
+                    <li class="border-gray-400 border-b">
+                      <a href="applications.html">Applications</a>
+                    </li>
+                    <li onclick="handlelogout(event)"><a href="">LogOut</a></li>
                   </ul>
                 </details>
               </li>
@@ -68,8 +85,7 @@
       </nav>
     </header>
 
-    <div id = "tuition-detials-container">
-
+    <div id="tuition-detials-container">
       <main class="bg-gray-200 px-24 py-16 flex gap-8">
         <section>
           <!-- stu info -->
@@ -319,14 +335,8 @@
           <a href="" class="btn">Share</a>
           <a href="" class="btn bg-blueish text-white">Apply Now</a>
         </div>
-        
       </main>
-      
     </div>
-
-    <!-- toast  -->
-    
-
 
     <!-- foote -->
     <footer

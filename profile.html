@@ -16,8 +16,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
+    <!-- google font poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
   </head>
-  <body >
+  <body class="font-poppins">
     <header>
       <!-- navbar -->
       <nav class="font-poppins">
@@ -44,11 +55,17 @@
               </li>
               <li>
                 <details id="profile-container" class="profile-container">
-                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">Profile</summary>
+                  <summary class="font-bold bg-base-100 lg:text-xl mr-4">
+                    Profile
+                  </summary>
                   <ul class="p-2 bg-gray-200 rounded-t-none">
-                    <li class="border-gray-400 border-b"><a href="profile.html">Profile</a></li>
-                    <li class="border-gray-400 border-b"><a href="applications.html">Applications</a></li>
-                    <li  onclick="handlelogout(event)"><a href="">LogOut</a></li>
+                    <li class="border-gray-400 border-b">
+                      <a href="profile.html">Profile</a>
+                    </li>
+                    <li class="border-gray-400 border-b">
+                      <a href="applications.html">Applications</a>
+                    </li>
+                    <li onclick="handlelogout(event)"><a href="">LogOut</a></li>
                   </ul>
                 </details>
               </li>
@@ -69,7 +86,7 @@
           alt=""
           class="size-28 lg:size-40 rounded-full"
         />
-        
+
         <!-- profile update profile section -->
         <div class="space-y-2 m-4 lg:space-y-8">
           <h1 class="font-bold lg:text-xl text-white hover:text-cyan-700">
@@ -96,32 +113,28 @@
 
       <div class="px-4 py-6">
         <div class="grid grid-cols-3 lg:grid-cols-2 gap-2">
-          <p class="font-bold">  Name: </p> 
+          <p class="font-bold">Name:</p>
           <div class="col-span-2 lg:col-span-1">
-            <span class="" id="first_name"> </span> 
-            <span class="" id="last_name"> </span>   
+            <span class="" id="first_name"> </span>
+            <span class="" id="last_name"> </span>
           </div>
 
-          <p class=" font-bold ">User Name: </p> 
+          <p class="font-bold">User Name:</p>
           <span class="col-span-2 lg:col-span-1" id="username"></span>
 
-          <p class="font-bold ">Email: </p>
+          <p class="font-bold">Email:</p>
           <span class="col-span-2 lg:col-span-1" id="email"> </span>
 
-          <p class="font-bold ">Mobile No: </p>
+          <p class="font-bold">Mobile No:</p>
           <span class="col-span-2 lg:col-span-1" id="mobile_no"> </span>
 
-          <p class=" font-bold ">Birth Date:  </p>
+          <p class="font-bold">Birth Date:</p>
           <span class="col-span-2 lg:col-span-1" id="birth_date"> </span>
 
-        <p class="font-bold ">Education: </p>
-        <span id="education"> </span>
+          <p class="font-bold">Education:</p>
+          <span id="education"> </span>
         </div>
       </div>
-
-
-
-
 
       <!-- <div class="space-y-5 mt-5 ml-5">
         <p class="text-xl font-bold text-gray-600 inline"> <i class="fa-solid fa-tag"></i> Name: </p> <span class="font-bold" id="first_name"> </span> <span class="font-bold" id="last_name"> </span> 
@@ -168,49 +181,47 @@
 
     <!-- inline js code  -->
     <script>
-      const user_id = localStorage.getItem("user_id")
+      const user_id = localStorage.getItem("user_id");
       // handle user picture
       // fetch(`https://learn-match-api.onrender.com/user/image/${user_id}`)
       fetch(`http://127.0.0.1:8000/user/image/${user_id}`)
-      .then(res => res.json())
-      .then(data => {
-        const user_image = document.getElementById("user-image")
-        user_image.src = data.image
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          const user_image = document.getElementById("user-image");
+          user_image.src = data.image;
+        });
 
-      // show user data 
+      // show user data
       // fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
       fetch(`http://127.0.0.1:8000/user/data/${user_id}`)
-      .then(res => res.json())
-      .then(data => {
-          const first_name = document.getElementById("first_name")
-          const last_name = document.getElementById("last_name")
-          const username = document.getElementById("username")
-          const email = document.getElementById("email")
-          first_name.innerText = data.first_name
-          last_name.innerText = data.last_name
-          username.innerText = data.username
-          email.innerText = data.email
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          const first_name = document.getElementById("first_name");
+          const last_name = document.getElementById("last_name");
+          const username = document.getElementById("username");
+          const email = document.getElementById("email");
+          first_name.innerText = data.first_name;
+          last_name.innerText = data.last_name;
+          username.innerText = data.username;
+          email.innerText = data.email;
+        });
 
-
-      // Teacher-model data display 
+      // Teacher-model data display
       // fetch(`https://learn-match-api.onrender.com/user/list/?${user_id}`)
       fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
-      .then(res => res.json())
-      .then(data => {
-          const mobile_no = document.getElementById("mobile_no")
-          const birth_date = document.getElementById("birth_date")
-          const education = document.getElementById("education")
-          
-          console.log(data[0].education)
-          mobile_no.innerText = data[0].mobile_no
-          birth_date.innerText = data[0].birth_date
-          education.innerText = data[0].education
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          const mobile_no = document.getElementById("mobile_no");
+          const birth_date = document.getElementById("birth_date");
+          const education = document.getElementById("education");
 
+          console.log(data[0].education);
+          mobile_no.innerText = data[0].mobile_no;
+          birth_date.innerText = data[0].birth_date;
+          education.innerText = data[0].education;
+        });
     </script>
-    
+
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </body>
 </html>

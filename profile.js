@@ -113,7 +113,7 @@ const updateUserInfo = (event) =>{
 }
 
 const image_check = document.getElementById("image").files[0]
-// const image_check = img.files[0]
+
 
 const changeImage = (event)=>{
     event.preventDefault()
@@ -126,9 +126,11 @@ const changeImage = (event)=>{
     if (!image_check){
         method = "POST"
         link_local = `http://127.0.0.1:8000/user/image/post/${user_id}`
+        link_onrender = `https://learn-match-api.onrender.com/user/image/post/${user_id}`
     }
     else{
         method = "PUT"
+        link_onrender = `https://learn-match-api.onrender.com/user/image/${user_id}`
         link_local = `http://127.0.0.1:8000/user/image/${user_id}`
     }
     console.log(method)
@@ -139,6 +141,7 @@ const changeImage = (event)=>{
         formdata.append("user",user_id ),
         formdata.append("teacher",teacher_id )
         // fetch(`http://127.0.0.1:8000/user/image/${user_id}`,{
+        // fetch(link_onrender,{
         fetch(link_local,{
             method: method,
             body:formdata

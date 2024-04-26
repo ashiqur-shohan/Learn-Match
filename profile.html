@@ -93,14 +93,45 @@
       </div>
 
       <!-- right section -->
-      <div class="space-y-5 mt-5 ml-5">
-        <p class="text-xl font-bold text-gray-600">Name: <span id="first_name"> </span> <span id="last_name"> </span> </p>
+
+      <div class="px-4 py-6">
+        <div class="grid grid-cols-3 lg:grid-cols-2 gap-2">
+          <p class="font-bold">  Name: </p> 
+          <div class="col-span-2 lg:col-span-1">
+            <span class="" id="first_name"> </span> 
+            <span class="" id="last_name"> </span>   
+          </div>
+
+          <p class=" font-bold ">User Name: </p> 
+          <span class="col-span-2 lg:col-span-1" id="username"></span>
+
+          <p class="font-bold ">Email: </p>
+          <span class="col-span-2 lg:col-span-1" id="email"> </span>
+
+          <p class="font-bold ">Mobile No: </p>
+          <span class="col-span-2 lg:col-span-1" id="mobile_no"> </span>
+
+          <p class=" font-bold ">Birth Date:  </p>
+          <span class="col-span-2 lg:col-span-1" id="birth_date"> </span>
+
+        <p class="font-bold ">Education: </p>
+        <span id="education"> </span>
+        </div>
+      </div>
+
+
+
+
+
+      <!-- <div class="space-y-5 mt-5 ml-5">
+        <p class="text-xl font-bold text-gray-600 inline"> <i class="fa-solid fa-tag"></i> Name: </p> <span class="font-bold" id="first_name"> </span> <span class="font-bold" id="last_name"> </span> 
+
         <p class="text-xl font-bold text-gray-600">User Name: <span id="username"></span></p>
         <p class="text-xl font-bold text-gray-600">Email: <span id="email"> </span></p>
         <p class="text-xl font-bold text-gray-600">Mobile No: <span id="mobile_no"> </span></p>
         <p class="text-xl font-bold text-gray-600">Birth Date: <span id="birth_date"> </span> </p>
         <p class="text-xl font-bold text-gray-600">Education: <span id="education"> </span></p>
-      </div>
+      </div> -->
     </section>
 
     <!-- footer section -->
@@ -132,13 +163,14 @@
     <!-- scripts -->
     <script src="app.js"></script>
     <script src="auth.js"></script>
-    <script src="profile.js"></script>
+    <!-- <script src="profile.js"></script> -->
     <!-- <script src="profile.js"></script> -->
 
     <!-- inline js code  -->
     <script>
       const user_id = localStorage.getItem("user_id")
       // handle user picture
+      // fetch(`https://learn-match-api.onrender.com/user/image/${user_id}`)
       fetch(`http://127.0.0.1:8000/user/image/${user_id}`)
       .then(res => res.json())
       .then(data => {
@@ -147,7 +179,8 @@
       })
 
       // show user data 
-      fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
+      // fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
+      fetch(`http://127.0.0.1:8000/user/data/${user_id}`)
       .then(res => res.json())
       .then(data => {
           const first_name = document.getElementById("first_name")
@@ -170,7 +203,7 @@
           const birth_date = document.getElementById("birth_date")
           const education = document.getElementById("education")
           
-          // console.log(data[0])
+          console.log(data[0].education)
           mobile_no.innerText = data[0].mobile_no
           birth_date.innerText = data[0].birth_date
           education.innerText = data[0].education

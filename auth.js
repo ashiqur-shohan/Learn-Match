@@ -18,7 +18,8 @@ const handleRegistration = (event) => {
 
     if (password === confirm_password) {
         document.getElementById("error").innerText = "";
-        fetch("https://learn-match-api.onrender.com/user/register/", {
+        // fetch("https://learn-match-api.onrender.com/user/register/", {
+        fetch("http://127.0.0.1:8000/user/register/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(info),
@@ -29,7 +30,9 @@ const handleRegistration = (event) => {
             }
             return res.json();
         })
-        .then((data) => console.log(data))
+        .then((data) => {
+            document.getElementById("error").innerText = data;
+        })
         .catch((err) => {
             console.error(err);
             document.getElementById("error").innerText = "An error occurred. Please try again.";
@@ -66,7 +69,11 @@ const handleLogin = (event) =>{
                 // redirect korar jonno
                 window.location.href = "index.html"
                 });
-                
+            }
+            else if (data.error){
+                const login_error = document.getElementById("login-error")
+                login_error.innerText = "Username and Password Didn't match."
+                login_error.classList = 'text-red-600'
             }
         })
     
@@ -95,7 +102,7 @@ const change_password = (event) =>{
     const confirm_password = document.getElementById('confirmPassword').value;
     const token = localStorage.getItem("token")
     const user_id = localStorage.getItem("user_id")
-    // const errorMessage = document.getElementById('error-message');
+    const errorMessage = document.getElementById('error-message');
     const info = {
         "old_password" : old_password,
         "new_password" : new_password,
@@ -103,7 +110,8 @@ const change_password = (event) =>{
         "user_id":user_id
     }
     if (new_password !== confirm_password) {
-        // errorMessage.innerText = 'Passwords do not match.';
+        errorMessage.innerText = 'Passwords do not match.';
+        errorMessage.classList = 'text-red-600 font-bold'
         return;
     }
 
@@ -118,13 +126,21 @@ const change_password = (event) =>{
             },
             body : JSON.stringify(info)
         })    
-        .then((res) => res.json())
-        .then((data) =>{
-            console.log(data)
-            console.log("Password Changed succesfully")
-            // errorMessage.innerText = 'Password Change Succesfully.';
+        .then((res) => {
+            res.json()
+            if (!res.ok){
+                throw new Error("Old password didn't match.")
+            }
         })
-        .catch(err => console.log(err))
+        .then((data) =>{
+            console.log(data.status)
+            errorMessage.innerText = 'Password Change Succesfully.';
+            errorMessage.classList = 'text-green-600 font-bold'
+        })
+        .catch(err => {
+            errorMessage.innerText = err.message;    
+            errorMessage.classList = 'text-red-600 font-bold'
+        })
     }
 }
 

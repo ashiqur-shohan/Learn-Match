@@ -1,6 +1,7 @@
 const getParams = () => {
   const param = new URLSearchParams(window.location.search).get("tuition_id");
-  fetch(`https://learn-match-api.onrender.com/tuition/?tuition_id=${param}`)
+//   fetch(`https://learn-match-api.onrender.com/tuition/?tuition_id=${param}`)
+  fetch(`http://127.0.0.1:8000/tuition/?tuition_id=${param}`)
     .then((res) => res.json())
     .then((data) => displayTuition(data[0]));
 };
@@ -251,12 +252,14 @@ const displayTuition = (tuition) => {
 
         </section>
 
-        <div class="flex flex-col bg-white rounded-lg px-16 py-10 gap-4 h-80 lg:w-1/4">
+        <div class="flex flex-col bg-white rounded-lg px-16 py-10 gap-4 h-96 lg:w-1/4">
             <a href="" class="btn bg-black text-white">Get Direction</a>
             <a href="" class="btn">Location</a>
             <a href="" class="btn">Share</a>
             <a href="" id='apply' onclick="handleApplication(event)" class="btn bg-blueish text-white">Apply Now</a>
+            <p id='application-msg' class='hidden'>Applied Succesfully</p>    
         </div>
+        
     </main>
   `;
   const apply = document.getElementById("apply")
@@ -274,8 +277,11 @@ const showalert = (event)=>{
 const handleApplication = (event) =>{
   event.preventDefault()
   const tuition_id = new URLSearchParams(window.location.search).get("tuition_id")
-  console.log("inside hangle application")
-  fetch("https://learn-match-api.onrender.com/application/",{
+    const msg = document.getElementById("application-msg")
+    
+
+//   fetch("https://learn-match-api.onrender.com/application/",{
+  fetch("http://127.0.0.1:8000/application/",{
     method : "POST",
     headers : {"content-type":"application/json"},
     body:JSON.stringify({
@@ -285,7 +291,17 @@ const handleApplication = (event) =>{
     })
   })
   .then((res) => res.json())
-  .then(data => console.log(data))
+  .then(data => {
+    
+    if (data.non_field_errors[0] == 'The fields teacher, tuition must make a unique set.'){
+        msg.innerText = "You have already Applied"
+        msg.classList = "text-red-600 font-semibold"
+        console.log('in')
+    }
+    else{
+        msg.classList = "text-green-600 font-semibold"
+    }
+})
   .then(err => console.log(err))
 }
 getParams();

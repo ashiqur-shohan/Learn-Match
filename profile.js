@@ -2,7 +2,8 @@ const handleUserProfile = () =>{
     const user_id = localStorage.getItem("user_id")
 
     // user-model data show 
-    fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
+    // fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
+    fetch(`http://127.0.0.1:8000/user/data/${user_id}`)
     .then(res => res.json())
     .then(data => {
         const first_name = document.getElementById("first_name")
@@ -22,15 +23,16 @@ const handleUserProfile = () =>{
     .then(data => {
         const mobile_no = document.getElementById("mobile_no")
         const birth_date = document.getElementById("birth_date")
+        const educaton = document.getElementById("education")
         
-        // console.log(data[0])
         mobile_no.value = data[0].mobile_no
         birth_date.value = data[0].birth_date
-        
+        educaton.value = data[0].education
     })
 
     // teacher image display 
-    fetch("http://127.0.0.1:8000/user/image/8")
+    // fetch(`https://learn-match-api.onrender.com/user/image/${user_id}`)
+    fetch(`http://127.0.0.1:8000/user/image/${user_id}`)
     .then(res => res.json())
     .then(data => {
 
@@ -40,6 +42,7 @@ const handleUserProfile = () =>{
         const formated_date = new Date(date).toLocaleString()
         console.log(formated_date)
     })
+    .catch(err => console.log(err))
 }
 
 const updateUserInfo = (event) =>{
@@ -60,20 +63,24 @@ const updateUserInfo = (event) =>{
     }
 
     //Fetching user data
-    fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`,{
-    // fetch(`http://127.0.0.1:8000/user/list/?user_id=8`,{
+    // fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`,{
+    fetch(`http://127.0.0.1:8000/user/data/${user_id}`,{
         method : "PUT",
         headers : {"content-type":"application/json"},
         body : JSON.stringify(info)
         
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+        
+        console.log("inside user info")
+    })
     .catch(err=>console.log(err))
 
     //getting teacher data
     let birth_date = document.getElementById("birth_date").value
     const mobile_no = document.getElementById("mobile_no").value
+    const educaton = document.getElementById("education").value
     // const user_image = document.getElementById("user-image")
     const image = document.getElementById("image")
     let imageFIle = image.files[0]
@@ -86,35 +93,54 @@ const updateUserInfo = (event) =>{
     // formData.append("image",imageFIle)
     formData.append("birth_date",birth_date)
     formData.append("mobile_no",mobile_no)
-    formData.append("education","SSC")
-    formData.append("user",8)
+    formData.append("education",educaton)
+    formData.append("user",user_id)
 
     //fetching teacher data
     // fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`,{
-    fetch(`http://127.0.0.1:8000/user/list/?user_id=8`,{
+    fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`,{
         method:"PUT",
         body : formData
     })
     .then((res) => res.json())
     .then(data => {
-        console.log(data)
-        window.location.reload()
+        // console.log(data)
+        const update_message = document.getElementById("update-message")
+        update_message.innerText = "Information Updated!"
+        setTimeout(window.location.reload(),5000)
     })
     .catch(err => console.log(err))
 }
+
+const image_check = document.getElementById("image").files[0]
+// const image_check = img.files[0]
 
 const changeImage = (event)=>{
     event.preventDefault()
     const user_id = localStorage.getItem("user_id")
     const teacher_id = localStorage.getItem("teacher_id")
+    
+    
+    let method = null
+    let link_local = null
+    if (!image_check){
+        method = "POST"
+        link_local = `http://127.0.0.1:8000/user/image/post/${user_id}`
+    }
+    else{
+        method = "PUT"
+        link_local = `http://127.0.0.1:8000/user/image/${user_id}`
+    }
+    console.log(method)
     let inputfield = document.getElementById("image")
     if (inputfield){
         const formdata = new FormData()
         formdata.append("image", inputfield.files[0])
         formdata.append("user",user_id ),
         formdata.append("teacher",teacher_id )
-        fetch(`http://127.0.0.1:8000/user/image/8`,{
-            method:"PUT",
+        // fetch(`http://127.0.0.1:8000/user/image/${user_id}`,{
+        fetch(link_local,{
+            method: method,
             body:formdata
         })
         .then(res => res.json())

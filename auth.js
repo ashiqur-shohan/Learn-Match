@@ -61,7 +61,7 @@ const handleLogin = (event) =>{
             if(data.token && data.user_id){
                 localStorage.setItem("token",data.token)
                 localStorage.setItem("user_id",data.user_id)
-                fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+                fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${data.user_id}`)
                 // fetch(`http://127.0.0.1:8000/user/list/?user_id=${data.user_id}`)
                 .then((res) => res.json())
                 .then((data) => {

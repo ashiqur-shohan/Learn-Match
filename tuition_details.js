@@ -1,7 +1,7 @@
 const getParams = () => {
   const param = new URLSearchParams(window.location.search).get("tuition_id");
-//   fetch(`https://learn-match-api.onrender.com/tuition/?tuition_id=${param}`)
-  fetch(`http://127.0.0.1:8000/tuition/?tuition_id=${param}`)
+  fetch(`https://learn-match-api.onrender.com/tuition/?tuition_id=${param}`)
+//   fetch(`http://127.0.0.1:8000/tuition/?tuition_id=${param}`)
     .then((res) => res.json())
     .then((data) => displayTuition(data[0]));
 };
@@ -280,8 +280,8 @@ const handleApplication = (event) =>{
     const msg = document.getElementById("application-msg")
     
 
-//   fetch("https://learn-match-api.onrender.com/application/",{
-  fetch("http://127.0.0.1:8000/application/",{
+  fetch("https://learn-match-api.onrender.com/application/",{
+//   fetch("http://127.0.0.1:8000/application/",{
     method : "POST",
     headers : {"content-type":"application/json"},
     body:JSON.stringify({

@@ -18,8 +18,8 @@ const handleRegistration = (event) => {
 
     if (password === confirm_password) {
         document.getElementById("error").innerText = "";
-        // fetch("https://learn-match-api.onrender.com/user/register/", {
-        fetch("http://127.0.0.1:8000/user/register/", {
+        fetch("https://learn-match-api.onrender.com/user/register/", {
+        // fetch("http://127.0.0.1:8000/user/register/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(info),
@@ -48,8 +48,8 @@ const handleLogin = (event) =>{
     const password = document.getElementById("password").value
 
     if ((username,password)){
-        // fetch("https://learn-match-api.onrender.com/user/login/",{
-        fetch("http://127.0.0.1:8000/user/login/",{
+        fetch("https://learn-match-api.onrender.com/user/login/",{
+        // fetch("http://127.0.0.1:8000/user/login/",{
             method : "POST",
             headers:{"content-type":"application/json"},
             body : JSON.stringify({username,password})
@@ -61,8 +61,8 @@ const handleLogin = (event) =>{
             if(data.token && data.user_id){
                 localStorage.setItem("token",data.token)
                 localStorage.setItem("user_id",data.user_id)
-                // fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
-                fetch(`http://127.0.0.1:8000/user/list/?user_id=${data.user_id}`)
+                fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+                // fetch(`http://127.0.0.1:8000/user/list/?user_id=${data.user_id}`)
                 .then((res) => res.json())
                 .then((data) => {
                 localStorage.setItem("teacher_id", data[0].id);
@@ -84,8 +84,8 @@ const getTeacher = () => {
 
     const user_id = localStorage.getItem("user_id");
   
-    // fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
-    fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
+    fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+    // fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data[0].id);
@@ -117,8 +117,8 @@ const change_password = (event) =>{
 
     else {
         console.log("inside else block")
-        // fetch("https://learn-match-api.onrender.com/user/change-password/",{
-        fetch("http://127.0.0.1:8000/user/change-password/",{
+        fetch("https://learn-match-api.onrender.com/user/change-password/",{
+        // fetch("http://127.0.0.1:8000/user/change-password/",{
             method : "PUT",
             headers:{
                 "Authorization" : `Token ${token}`,
@@ -150,8 +150,8 @@ const handlelogout = (event)=>{
     const user_id = localStorage.getItem("user_id")
     // console.log(token)
     
-    // fetch("https://learn-match-api.onrender.com/user/logout/",{
-    fetch("http://127.0.0.1:8000/user/logout/",{
+    fetch("https://learn-match-api.onrender.com/user/logout/",{
+    // fetch("http://127.0.0.1:8000/user/logout/",{
         method:"POST",
         headers:{
             "Authorization" : `Token ${token}`,
@@ -175,7 +175,3 @@ const handlelogout = (event)=>{
     .catch(err => console.log(err))
     
 }
-
-
-
-// authentication()

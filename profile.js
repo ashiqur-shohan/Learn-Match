@@ -2,8 +2,8 @@ const handleUserProfile = () =>{
     const user_id = localStorage.getItem("user_id")
 
     // user-model data show 
-    // fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
-    fetch(`http://127.0.0.1:8000/user/data/${user_id}`)
+    fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`)
+    // fetch(`http://127.0.0.1:8000/user/data/${user_id}`)
     .then(res => res.json())
     .then(data => {
         const first_name = document.getElementById("first_name")
@@ -17,8 +17,8 @@ const handleUserProfile = () =>{
     })
 
     // Teacher-model data display 
-    // fetch(`https://learn-match-api.onrender.com/user/list/?${user_id}`)
-    fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
+    fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`)
+    // fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`)
     .then(res => res.json())
     .then(data => {
         const mobile_no = document.getElementById("mobile_no")
@@ -31,8 +31,8 @@ const handleUserProfile = () =>{
     })
 
     // teacher image display 
-    // fetch(`https://learn-match-api.onrender.com/user/image/${user_id}`)
-    fetch(`http://127.0.0.1:8000/user/image/${user_id}`)
+    fetch(`https://learn-match-api.onrender.com/user/image/${user_id}`)
+    // fetch(`http://127.0.0.1:8000/user/image/${user_id}`)
     .then(res => res.json())
     .then(data => {
 
@@ -63,8 +63,8 @@ const updateUserInfo = (event) =>{
     }
 
     //Fetching user data
-    // fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`,{
-    fetch(`http://127.0.0.1:8000/user/data/${user_id}`,{
+    fetch(`https://learn-match-api.onrender.com/user/data/${user_id}`,{
+    // fetch(`http://127.0.0.1:8000/user/data/${user_id}`,{
         method : "PUT",
         headers : {"content-type":"application/json"},
         body : JSON.stringify(info)
@@ -81,7 +81,7 @@ const updateUserInfo = (event) =>{
     let birth_date = document.getElementById("birth_date").value
     const mobile_no = document.getElementById("mobile_no").value
     const educaton = document.getElementById("education").value
-    // const user_image = document.getElementById("user-image")
+    
     const image = document.getElementById("image")
     let imageFIle = image.files[0]
     if (!birth_date){
@@ -90,15 +90,15 @@ const updateUserInfo = (event) =>{
     
     // creating inputted teacher data object
     const formData = new FormData()
-    // formData.append("image",imageFIle)
+    
     formData.append("birth_date",birth_date)
     formData.append("mobile_no",mobile_no)
     formData.append("education",educaton)
     formData.append("user",user_id)
 
     //fetching teacher data
-    // fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`,{
-    fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`,{
+    fetch(`https://learn-match-api.onrender.com/user/list/?user_id=${user_id}`,{
+    // fetch(`http://127.0.0.1:8000/user/list/?user_id=${user_id}`,{
         method:"PUT",
         body : formData
     })
@@ -125,13 +125,13 @@ const changeImage = (event)=>{
     let link_local = null
     if (!image_check){
         method = "POST"
-        link_local = `http://127.0.0.1:8000/user/image/post/${user_id}`
+        // link_local = `http://127.0.0.1:8000/user/image/post/${user_id}`
         link_onrender = `https://learn-match-api.onrender.com/user/image/post/${user_id}`
     }
     else{
         method = "PUT"
+        // link_local = `http://127.0.0.1:8000/user/image/${user_id}`
         link_onrender = `https://learn-match-api.onrender.com/user/image/${user_id}`
-        link_local = `http://127.0.0.1:8000/user/image/${user_id}`
     }
     console.log(method)
     let inputfield = document.getElementById("image")
@@ -140,9 +140,8 @@ const changeImage = (event)=>{
         formdata.append("image", inputfield.files[0])
         formdata.append("user",user_id ),
         formdata.append("teacher",teacher_id )
-        // fetch(`http://127.0.0.1:8000/user/image/${user_id}`,{
-        // fetch(link_onrender,{
-        fetch(link_local,{
+        fetch(link_onrender,{
+        // fetch(link_local,{
             method: method,
             body:formdata
         })

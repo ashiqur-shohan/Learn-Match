@@ -1,7 +1,7 @@
 const loadTuition = (search) => {
   document.getElementById("tuition-container").innerHTML = "";
-  // fetch(`https://learn-match-api.onrender.com/tuition/?search=${search ? search :""}`)
-  fetch(`http://127.0.0.1:8000/tuition/?search=${search ? search : ""}`)
+  fetch(`https://learn-match-api.onrender.com/tuition/?search=${search ? search :""}`)
+  // fetch(`http://127.0.0.1:8000/tuition/?search=${search ? search : ""}`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -18,8 +18,8 @@ const loadTuition = (search) => {
 
 const loadTuition_by_filter = (search) => {
   document.getElementById("tuition-container").innerHTML = "";
-  // fetch(`https://learn-match-api.onrender.com/tuition/?search=${search ? search :""}`)
-  fetch(`http://127.0.0.1:8000/tuition/?search=${search ? search : ""}`)
+  fetch(`https://learn-match-api.onrender.com/tuition/?search=${search ? search :""}`)
+  // fetch(`http://127.0.0.1:8000/tuition/?search=${search ? search : ""}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.results.length > 0) {

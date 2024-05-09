@@ -46,7 +46,7 @@ const displayTuition = (tuitions) => {
         <div class="card bg-white shadow-xl">
             <div class="card-body ">
             <div class="flex ">
-              <h2 class="text-2xl font-bold">${tuition.grade}</h2>
+              <h2 class="text-xl font-bold">${tuition.grade}</h2>
               <div class="flex ml-auto">
               <h2 class="text-lg ">ID : ${tuition.id}</h2>
               </div>
@@ -56,7 +56,7 @@ const displayTuition = (tuitions) => {
               <h2 class=""> <i class="fa-solid fa-dollar-sign"></i> ${tuition.salary}</h2>
               
               <h2 class="">Address : ${tuition.address}</h2>
-              <h2 class="card-title"> <i class="fa-solid fa-calendar-days"></i> Days : ${tuition.day_perweek}</h2>
+              <h2 class="text-lg font-semibold"> <i class="fa-solid fa-calendar-days"></i> Days : ${tuition.day_perweek}</h2>
               <a class="btn btn-neutral mt-4" href="tuition_details.html?tuition_id=${tuition.id}" target="_blank"> Details </a>
             </div>
           </div>

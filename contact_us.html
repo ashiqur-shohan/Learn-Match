@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Learn Match - Contact Us</title>
+    <link rel="icon" href="./images/tuition1.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body >
+    <!-- navbar -->
+    <nav class="font-poppins">
+        <div class="navbar flex-col lg:flex-row bg-base-100 shadow-lg">
+          <div class="lg:flex-1">
+            <a class="btn btn-ghost lg:text-2xl" href="index.html"
+              ><span class="text-blue-600 font-bold">Learn</span>Match</a
+            >
+          </div>
+          <div class="">
+            <ul class="menu menu-horizontal px-1">
+              <li>
+                <a class="font-semibold lg:text-lg" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a class="font-semibold lg:text-lg" href="all_tuitions.html"
+                  >All Tuitions</a
+                >
+              </li>
+              <li>
+                <a class="font-semibold lg:text-lg" href="about_us.html"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a class="font-semibold lg:text-lg" href="contact_us.html"
+                  >Contact Us</a
+                >
+              </li>
+              <li id="registration-container">
+                <a href="registration.html" class="font-semibold lg:text-lg"
+                  >Registration</a
+                >
+              </li>
+              <li id="login-container">
+                <a href="login.html" class="font-semibold lg:text-lg">Login</a>
+              </li>
+              <li>
+                <details id="profile-container" class="profile-container">
+                  <summary class="font-semibold bg-base-100 lg:text-lg mr-4">
+                    Profile
+                  </summary>
+                  <ul class="p-2 bg-gray-200 rounded-t-none">
+                    <li class="border-gray-400 border-b">
+                      <a href="profile.html">Profile</a>
+                    </li>
+                    <li class="border-gray-400 border-b">
+                      <a href="applications.html">Applications</a>
+                    </li>
+                    <li onclick="handlelogout(event)"><a href="">LogOut</a></li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Contact Section -->
+    <section class="text-center container mx-auto my-14">
+      <div class="mb-14">
+        <h1
+          class="text-2xl lg:text-4xl font-extrabold font-garamond mb-6 pt-12"
+        >
+          Frequently Contact With Us
+        </h1>
+        <p class="w-3/5 mx-auto">
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority have suffered alteration in some form, by injected
+          humour.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- first -->
+          <div
+            class="px-10 container mx-auto py-5 bg-[#F3F3F3] rounded-lg size-72"
+          >
+            <figure>
+              <img class="mx-auto" src="/images/location.jpeg" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title text-3xl font-garamond font-extrabold">
+                Address
+              </h2>
+              <p class="my-6">
+                Lorem ipsum<br />
+                consectetur
+              </p>
+            </div>
+          </div>
+
+          <!-- second -->
+          <div
+            class="px-10 container mx-auto py-5 bg-[#F3F3F3] rounded-lg size-72"
+          >
+            <figure>
+              <img class="mx-auto" src="/images/phone.jpeg" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title text-3xl font-garamond font-extrabold">
+                Call Us
+              </h2>
+              <p class="my-6">
+                Lorem ipsum<br />
+                consectetur
+              </p>
+            </div>
+          </div>
+
+          <!-- third -->
+          <div
+            class="px-10 py-5 container mx-auto bg-[#F3F3F3] rounded-lg size-72"
+          >
+            <figure>
+              <img class="mx-auto" src="/images/email.jpeg" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title text-3xl font-garamond font-extrabold">
+                Email Us
+              </h2>
+              <p class="my-6">
+                Lorem ipsum<br />
+                consectetur
+              </p>
+            </div>
+          </div>
+          <!-- forth -->
+          <div
+            class="px-10 container mx-auto py-5 bg-[#F3F3F3] rounded-lg size-72"
+          >
+            <figure>
+              <img class="mx-auto " src="/images/time.jpeg" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title text-3xl font-garamond font-extrabold">
+                Working Hour
+              </h2>
+              <p class="my-6">
+                Lorem ipsum<br />
+                consectetur
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <form method="POST">
+          <input
+            type="hidden"
+            name="csrfmiddlewaretoken"
+            value="LA9X06YVQB1I7lVrIRYhdV3LrX6AitRSmE040Udj1pOd4fNjdiy1V1yfAqwwgBSt"
+          />
+          <h3 class="text-left text-xl font-bold">Write your query</h3>
+          <hr class="my-2" />
+
+          <input
+            type="text"
+            name="name"
+            maxlength="50"
+            class="bg-[#F3F3F3] w-full mb-4 p-6 rounded-lg"
+            placeholder="Your Name"
+            required
+            id="id_name"
+          />
+
+          <input
+            type="text"
+            name="phone"
+            maxlength="12"
+            class="bg-[#F3F3F3] w-full mb-4 p-6 rounded-lg"
+            placeholder="Your Mobile Number"
+            required
+            id="id_phone"
+          />
+
+          <textarea
+            name="body"
+            cols="30"
+            rows="8"
+            class="bg-[#F3F3F3] w-full mb-4 p-6 rounded-lg"
+            id=""
+            name=""
+            placeholder="Message"
+            required
+          ></textarea>
+
+          <div>
+            <button
+              class="btn bg-green-800 text-white text-lg font-semibold w-full"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer
+      class="footer p-10 bg-neutral text-neutral-content flex justify-around"
+    >
+      <nav>
+        <h6 class="footer-title">Services</h6>
+        <a class="link link-hover">Branding</a>
+        <a class="link link-hover">Design</a>
+        <a class="link link-hover">Marketing</a>
+        <a class="link link-hover">Advertisement</a>
+      </nav>
+      <nav>
+        <h6 class="footer-title">Company</h6>
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Contact</a>
+        <a class="link link-hover">Jobs</a>
+        <a class="link link-hover">Press kit</a>
+      </nav>
+      <nav>
+        <h6 class="footer-title">Legal</h6>
+        <a class="link link-hover">Terms of use</a>
+        <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover">Cookie policy</a>
+      </nav>
+    </footer>
+
+
+    <script src="app.js"></script>
+  </body>
+</html>

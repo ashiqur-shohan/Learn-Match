@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Learn Match - About Us</title>
+    <link rel="icon" href="./images/tuition1.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <nav class="font-poppins">
+        <div class="navbar flex-col lg:flex-row bg-base-100 shadow-lg">
+          <div class="lg:flex-1">
+            <a class="btn btn-ghost lg:text-2xl" href="index.html"
+              ><span class="text-blue-600 font-bold">Learn</span>Match</a
+            >
+          </div>
+          <div class="">
+            <ul class="menu menu-horizontal px-1">
+              <li>
+                <a class="font-semibold lg:text-lg" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a class="font-semibold lg:text-lg" href="all_tuitions.html"
+                  >All Tuitions</a
+                >
+              </li>
+              <li>
+                <a class="font-semibold lg:text-lg" href="about_us.html"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a class="font-semibold lg:text-lg" href="contact_us.html"
+                  >Contact Us</a
+                >
+              </li>
+              <li id="registration-container">
+                <a href="registration.html" class="font-semibold lg:text-lg"
+                  >Registration</a
+                >
+              </li>
+              <li id="login-container">
+                <a href="login.html" class="font-semibold lg:text-lg">Login</a>
+              </li>
+              <li>
+                <details id="profile-container" class="profile-container">
+                  <summary class="font-semibold bg-base-100 lg:text-lg mr-4">
+                    Profile
+                  </summary>
+                  <ul class="p-2 bg-gray-200 rounded-t-none">
+                    <li class="border-gray-400 border-b">
+                      <a href="profile.html">Profile</a>
+                    </li>
+                    <li class="border-gray-400 border-b">
+                      <a href="applications.html">Applications</a>
+                    </li>
+                    <li onclick="handlelogout(event)"><a href="">LogOut</a></li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <section class="text-center my-14">
+      <div class="mb-14">
+        <h1 class="text-4xl font-extrabold font-garamond mb-6 pt-12">
+          Know About <span class="text-blue-600"> Us </span>
+        </h1>
+
+        <hr class="border-t-2 border-gray-400 lg:w-3/5 mx-auto mb-5" />
+        <p class="lg:w-3/5 mx-auto">
+          Search thousands of hotels around the world. Filter by price,
+          amenities, and location to get the best deal on your dream vacation
+          (or business trip). Book online securely and skip the front desk
+          hassle.
+        </p>
+      </div>
+
+      <div class="flex flex-col-reverse lg:flex-row gap-8 pt-4">
+        <!-- question container -->
+        <div class="lg:w-1/2">
+          <!-- first -->
+          <div class="collapse collapse-plus text-left p-8">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title text-2xl font-garamond font-extrabold">
+              1. Can I cancel my reservation and get a refund??
+            </div>
+            <div class="collapse-content">
+              <p class="">
+                Our cancellation policy varies depending on the hotel and rate
+                you choose. Most hotels allow cancellation up to 24 hours before
+                your arrival date for a full refund. However, some hotels may
+                have stricter cancellation policies, so be sure to review the
+                details during the booking process. You can find the specific
+                cancellation policy for your chosen hotel on the confirmation
+                page.
+              </p>
+            </div>
+          </div>
+
+          <!-- second -->
+          <div class="collapse collapse-plus text-left p-8">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-2xl font-garamond font-extrabold">
+              2. Is it safe to book a hotel through your website?
+            </div>
+            <div class="collapse-content">
+              <p class="">
+                Absolutely! We use secure encryption technology to protect your
+                personal and financial information during the booking process.
+                We do not store your full credit card details on our servers.
+              </p>
+            </div>
+          </div>
+
+          <!-- third -->
+          <div class="collapse collapse-plus text-left p-8">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-2xl font-garamond font-extrabold">
+              3. How can I narrow down my hotel search options?
+            </div>
+            <div class="collapse-content">
+              <p class="">
+                Our website offers a variety of filters to help you find the
+                perfect hotel for your needs. You can filter by location, price,
+                amenities (such as pool, spa, or fitness center), guest rating,
+                and more. We also have curated lists of hotels based on travel
+                style (e.g., family-friendly, luxury) to help you get started.
+              </p>
+            </div>
+          </div>
+
+          <!-- forth -->
+          <div class="collapse collapse-plus text-left p-8">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-2xl font-garamond font-extrabold">
+              4. Do I need to create an account to book a hotel?
+            </div>
+            <div class="collapse-content">
+              <p class="">
+                No, you don't need to create an account to book a hotel on our
+                website. However, creating an account allows you to save your
+                preferences, manage your bookings easily, and access exclusive
+                deals and discounts.
+              </p>
+            </div>
+          </div>
+        </div>
+        <img src="/images/images.jpg" alt="" />
+      </div>
+    </section>
+
+    <footer
+      class="footer p-10 bg-neutral text-neutral-content flex justify-around"
+    >
+      <nav>
+        <h6 class="footer-title">Services</h6>
+        <a class="link link-hover">Branding</a>
+        <a class="link link-hover">Design</a>
+        <a class="link link-hover">Marketing</a>
+        <a class="link link-hover">Advertisement</a>
+      </nav>
+      <nav>
+        <h6 class="footer-title">Company</h6>
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Contact</a>
+        <a class="link link-hover">Jobs</a>
+        <a class="link link-hover">Press kit</a>
+      </nav>
+      <nav>
+        <h6 class="footer-title">Legal</h6>
+        <a class="link link-hover">Terms of use</a>
+        <a class="link link-hover">Privacy policy</a>
+        <a class="link link-hover">Cookie policy</a>
+      </nav>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
